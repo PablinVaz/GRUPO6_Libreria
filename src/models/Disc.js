@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose');
 
-const BookSchema = new Schema ({
+const DiscSchema = new Schema ({
     title: {
         type: String,
         required:true
@@ -13,5 +13,4 @@ const BookSchema = new Schema ({
 }, {
     timestamps:true   //añade fecha de creación y de actualización
 })
-
 module.exports = model('Disc', DiscSchema);
