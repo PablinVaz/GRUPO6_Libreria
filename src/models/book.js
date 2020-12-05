@@ -14,4 +14,4 @@ const BookSchema = new Schema ({
     timestamps:true   //añade fecha de creación y de actualización
 })
 
-module.exports = model('Disc', DiscSchema);
+module.exports = model('Book', BookSchema);
