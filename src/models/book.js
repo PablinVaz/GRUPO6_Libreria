@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose0');
+const {Schema, model} = require('mongoose');
 
 const BookSchema = new Schema ({
     title: {
