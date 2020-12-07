@@ -1,5 +1,7 @@
+//Creamos un objeto
 const bookCtrl = {};
 
+//El objeto va a tener varias funciones a las cuales vamos a llamar en book.routes.js 
 bookCtrl.renderBookForm = (req, res) => {
     res.send('book add')
 };
@@ -18,5 +20,5 @@ bookCtrl.updateBook = (req, res) => {
 bookCtrl.deleteBook = (req, res) => {
     res.send('book deleted')
 }
-
+//EXPORTAMOS
 module.exports = bookCtrl;

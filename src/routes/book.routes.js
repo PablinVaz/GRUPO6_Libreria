@@ -1,20 +1,24 @@
 const { Router } = require('express')
 const router = Router()
 
+//Importamos las funciones creadas en book.controller.js
 const { renderBookForm, createNewBook, renderBooks, renderEditBookForm, updateBook, deleteBook } = require('../controllers/book.controller');
 
-//Nuevo Book
+//Cuando se solicite una ruta le decimos que tienes que ir a buscarla a book.controller.js
+
+//CREATE Book
 router.get('/book/add', renderBookForm);
 router.post('/book/add', createNewBook);
 
-//Obtener Books
+//READ Books
 router.get('/book', renderBooks);
 
-//Editar books
+//UPDATE books
 router.get('/book/edit/:id', renderEditBookForm);
 router.put('/book/edit/:id', updateBook);
 
-//Eliminar Book
+//DELETE Book
 router.delete('/book/delete/:id', deleteBook)
+
 
 module.exports = router
