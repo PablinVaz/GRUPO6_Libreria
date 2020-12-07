@@ -31,6 +31,8 @@ const app = express();
 //Rutas
 
 app.use(require('./routes/index.routes'));
+app.use(require('./routes/book.routes'));
+app.use(require('./routes/disc.routes'));
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));

@@ -9,6 +9,9 @@ indexCtrl.renderIndex = (req, res) =>{
 indexCtrl.renderAbout = (req, res) =>{
     res.render('about')
 };
+indexCtrl.renderReg = (req, res) =>{
+    res.render('register')
+};
 
 //Exportamos
 module.exports = indexCtrl;
