@@ -20,5 +20,6 @@ bookCtrl.updateBook = (req, res) => {
 bookCtrl.deleteBook = (req, res) => {
     res.send('book deleted')
 }
+
 //EXPORTAMOS
 module.exports = bookCtrl;

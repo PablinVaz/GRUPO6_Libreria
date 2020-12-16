@@ -7,7 +7,8 @@ const DiscSchema = new Schema ({
     },
     description: String,
     price:{
-        type: Float32Array,
+        type: Number,
+        default:0,
         required: true,
     }
 }, {
