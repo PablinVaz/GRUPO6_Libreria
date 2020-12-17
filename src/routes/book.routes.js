@@ -1,3 +1,4 @@
+// LLamamos a una propiedad llamada { Router } del modulo 'express'
 const { Router } = require('express')
 const router = Router()
 
