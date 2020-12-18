@@ -9,10 +9,10 @@ const { renderBookForm, createNewBook, renderBooks, renderEditBookForm, updateBo
 
 //CREATE Book
 router.get('/book/add', renderBookForm);
-router.post('/book/add', createNewBook);
+router.post('/book/new-book', createNewBook);
 
 //READ Books
-router.get('/book', renderBooks);
+router.get('/books', renderBooks);
 
 //UPDATE books
 router.get('/book/edit/:id', renderEditBookForm);

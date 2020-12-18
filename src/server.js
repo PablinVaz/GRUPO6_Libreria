@@ -1,10 +1,14 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 //Para ser lo más multiplataforma posible y evitar futuros problemas importamos el modulo PATH
+//NO HACE FALTA INSTALARLO, YA VIENE INSTALADO EN NODE
 const path = require ('path');
+//MORGAN es un midelwawre de express y sirve para ver las peticiones que llegan al servidor
+const morgan = require ('morgan');
 
 //Inializaciones
 const app = express();
+
 
 //Setttings
 
@@ -25,6 +29,9 @@ const app = express();
 
     //Con esta línea lo que hacemos es decirle al servidor que todos los datos recividos de formularios los almacene como un objeto JSON
     app.use(express.urlencoded({extended:false}));
+    // Usamos morgan y le decimos que solo funcione en desarrollo 
+    app.use(morgan('dev'));
+
 
 //Variables Globales
 
