@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require("express");
 const exphbs = require('express-handlebars');
 //Para ser lo más multiplataforma posible y evitar futuros problemas importamos el modulo PATH
@@ -5,6 +7,7 @@ const exphbs = require('express-handlebars');
 const path = require ('path');
 //MORGAN es un midelwawre de express y sirve para ver las peticiones que llegan al servidor
 const morgan = require ('morgan');
+const { strict } = require("assert");
 
 //Inializaciones
 const app = express();

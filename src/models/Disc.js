@@ -5,13 +5,22 @@ const DiscSchema = new Schema ({
         type: String,
         required:true
     },
-    description: String,
+    publisher:{
+        type:String,
+        required:true
+    },
     price:{
-        type: Number,
-        default:0,
+        type: String,
+        default: 0,
+        required: true,
+    },
+    stock:{
+        type: String,
+        default: 0,
         required: true,
     }
 }, {
     timestamps:true   //añade fecha de creación y de actualización
 })
+
 module.exports = model('Disc', DiscSchema);

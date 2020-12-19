@@ -18,7 +18,6 @@ const BookSchema = new Schema ({
         type: String,
         default: 0,
         required: true,
-
     }
 }, {
     timestamps:true   //añade fecha de creación y de actualización

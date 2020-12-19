@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose')
 
 //Ocultamos la direccion de la DB que esta en .env

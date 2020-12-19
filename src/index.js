@@ -1,3 +1,5 @@
+'use strict';
+
 //DOTENV: sirve para ocultar con variables de entorno nuestro codigo sensible.
 require('dotenv').config(); //lo que hacemos es que cargue primero los archivos .env
 
