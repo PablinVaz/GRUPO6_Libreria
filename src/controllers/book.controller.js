@@ -11,7 +11,7 @@ bookCtrl.createNewBook = async (req, res) => {
     const {title, publisher, price} = req.body;
     const newBook = new Book ({title, publisher, price})
     await newBook.save();
-    res.send('new book')
+    res.redirect('/books')
 };
 bookCtrl.renderBooks = async (req, res) => {
     const books = await Book.find().lean();
@@ -23,8 +23,9 @@ bookCtrl.renderEditBookForm = (req, res) => {
 bookCtrl.updateBook = (req, res) => {
     res.send('update book')
 };
-bookCtrl.deleteBook = (req, res) => {
-    res.send('book deleted')
+bookCtrl.deleteBook = async (req, res) => {
+    await Book.findByIdAndDelete(req.params.id)
+    res.redirect('/books')
 }
 
 //EXPORTAMOS

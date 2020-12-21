@@ -9,7 +9,8 @@
                     <p>{{publisher}}</p>
                     <p>{{price}} &euro;</p>
                     <p>{{stock}}</p>
-                    <form action="/book/delete/{{_id}}" method="POST">
+                    <form action="/book/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger btn-block btn-sm">Borrar</button>
                     </form>
                 </div>

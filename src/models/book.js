@@ -12,12 +12,13 @@ const BookSchema = new Schema ({
     price:{
         type: String,
         default: 0,
-        required: true,
+        required: true
     },
     stock:{
         type: String,
-        default: 0,
         required: true,
+        default: 0
+        
     }
 }, {
     timestamps:true   //añade fecha de creación y de actualización

@@ -7,7 +7,8 @@ const exphbs = require('express-handlebars');
 const path = require ('path');
 //MORGAN es un midelwawre de express y sirve para ver las peticiones que llegan al servidor
 const morgan = require ('morgan');
-const { strict } = require("assert");
+//Requerimos methop override para poder borrar los libros y los discos de la base de datos
+const methopOverride = require ('method-override');
 
 //Inializaciones
 const app = express();
@@ -29,11 +30,13 @@ const app = express();
     app.set('view engine', '.hbs');
 
 //Peticiones
-
-    //Con esta línea lo que hacemos es decirle al servidor que todos los datos recividos de formularios los almacene como un objeto JSON
-    app.use(express.urlencoded({extended:false}));
     // Usamos morgan y le decimos que solo funcione en desarrollo 
     app.use(morgan('dev'));
+    //Con esta línea lo que hacemos es decirle al servidor que todos los datos recividos de formularios los almacene como un objeto JSON
+    app.use(express.urlencoded({extended:false}));
+    app.use(methopOverride('_method'));
+    
+
 
 
 //Variables Globales
