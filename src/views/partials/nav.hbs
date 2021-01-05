@@ -8,11 +8,23 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/book/add">Añadir libro <span class="sr-only">(current)</span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Libros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/books">Catalogo</a>
+                        <a class="dropdown-item" href="/books/add">Añadir</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/books">Catalogo libros</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Discos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/books">Catalogo</a>
+                        <a class="dropdown-item" href="/books/add">Añadir</a>
+                    </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

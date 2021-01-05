@@ -1,5 +1,5 @@
 {
-  "name": "Libreria",
+  "name": "GRUPO6_Libreria",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,9 +7,17 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PablinVaz/GRUPO6_Libreria.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PablinVaz/GRUPO6_Libreria/issues"
+  },
+  "homepage": "https://github.com/PablinVaz/GRUPO6_Libreria#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
@@ -18,7 +26,7 @@
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "method-override": "^3.0.0",
-    "mongoose": "^5.11.4",
+    "mongoose": "^5.11.9",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
@@ -26,6 +34,6 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.6",
-    "npm-check-updates": "^10.2.2"
+    "npm-check-updates": "^10.2.5"
   }
 }

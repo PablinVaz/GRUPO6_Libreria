@@ -7,8 +7,7 @@ require('dotenv').config(); //lo que hacemos es que cargue primero los archivos 
 //    ¡¡¡¡¡¡SON PARA TRABAJAR EN DESARROLLO!!!!!!!!!!!
 //  EN PRODUCCION EL SERVICIO DE HOSTING NOS VA A PERMITIR GUARDAR LAS VARIABLES DE ENTORNO APARTE
 
-const app = require("./server");
-
+const app = require ('./server');
 require('./database')
 
 app.listen(app.get('port'), () => {

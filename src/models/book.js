@@ -1,27 +1,25 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require ('mongoose');
 
-const BookSchema = new Schema ({
-    title: {
-        type: String,
-        required:true
+const BookSchema =new Schema ({
+    
+    title:{
+        type : String,
+        required: true
     },
-    publisher:{
-        type:String,
-        required:true
-    },
-    price:{
-        type: String,
-        default: 0,
+    publisher: {
+        type : String,
         required: true
     },
     stock:{
-        type: String,
-        required: true,
-        default: 0
-        
+        type : Number,
+        required: true
+    },
+    price:{
+        type : String,
+        required: true
     }
-}, {
-    timestamps:true   //añade fecha de creación y de actualización
+},{
+    timestamps: true
 })
 
 module.exports = model('Book', BookSchema);
