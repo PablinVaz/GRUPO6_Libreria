@@ -8,7 +8,8 @@ const MONGODB_URI = `mongodb://${LIBRERIA_APP_MONGODB_HOST}/${LIBRERIA_APP_MONGO
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 })
 
 // Con esto nos dice que estamos conectados a la base de datos

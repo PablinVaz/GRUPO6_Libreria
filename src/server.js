@@ -2,13 +2,17 @@
 
 const express = require ("express");
 const exphbs = require ('express-handlebars');
-//Para ser lo más multiplataforma posible y evitar futuros problemas importamos el modulo PATH
-//NO HACE FALTA INSTALARLO, YA VIENE INSTALADO EN NODE
+// Para ser lo más multiplataforma posible y evitar futuros problemas importamos el modulo PATH
+// NO HACE FALTA INSTALARLO, YA VIENE INSTALADO EN NODE
 const path = require ('path');
-//MORGAN es un midelwawre de express y sirve para ver las peticiones que llegan al servidor
+// MORGAN es un midelwawre de express y sirve para ver las peticiones que llegan al servidor
 const morgan = require ('morgan');
-//Requerimos methop override para poder borrar los libros y los discos de la base de datos
+// Requerimos methop override para poder borrar los libros y los discos de la base de datos
 const methodOverride = require ('method-override');
+// Esta libreria se usa para enviar mensajes; se ha creado un disco nuevo o se ha borrado un libro....
+const flash = require('connect-flash');
+// Express-session de usa para guardar los mensajes de connect-flash
+const session = require('express-session');
 
 // Inializaciones
 const app = express();
@@ -42,14 +46,28 @@ const app = express();
     app.use(express.urlencoded({extended:false}));
     //Con '_method' le estamos diciendo el metodo que queremos usar. En el archivo all-books.hbs tenemos más detalles.
     app.use(methodOverride('_method'));
+    // con este modulo guardanos los mensajes en el servidor.
+    app.use(session({
+        secret: 'secret',
+        resave: true,
+        saveUninitialized: true
+    }));
+    // 
+    app.use(flash());
+
     
 
 // Variables Globales
+    app.use((req,res, next) =>{ // Aqui es donde recogemos los mensages y se envia al archivo MESSAGES.HBS
+        res.locals.success_msg = req.flash('success_msg'); //Mensajes OK
+        res.locals.error_msg = req.flash('error_msg'); // Mensajes de ERROR
+        next();
+    });
 
 // Routes
-app.use(require('./routes/index.routes'));
-app.use(require('./routes/book.routes'));
-// app.use(require('./routes/disc.routes'));
+    app.use(require('./routes/index.routes'));
+    app.use(require('./routes/book.routes'));
+    app.use(require('./routes/users.routes'));
 
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));

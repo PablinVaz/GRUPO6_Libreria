@@ -12,6 +12,9 @@ bookCtrl.createNewBook = async (req, res) => {
     const { title, publisher, stock, price } = req.body;
     const newBook = new Book ({title, publisher, stock, price});
     await newBook.save();
+    // Mensajes de Libro
+    //Le decimos que guarde el mensaje 'Libro agregado correctamente' en 'success_msg'
+    req.flash('success_msg', 'Libro agregado correctamente'); 
     res.redirect('/books')
 };
 bookCtrl.renderBooks = async (req, res) => {
@@ -24,11 +27,17 @@ bookCtrl.renderEditBookForm = async (req, res) => {
 };
 bookCtrl.updateBook = async (req, res) => {
     const { title, publisher, price ,stock } = req.body;
-    await Book.findByIdAndUpdate(req.params.id, { title, publisher, price, stock }), 
+    await Book.findByIdAndUpdate(req.params.id, { title, publisher, price, stock }),
+    // Mensajes de Libro
+    //Le decimos que guarde el mensaje 'Libro actualizado correctamente' en 'success_msg'
+    req.flash('success_msg', 'Libro actualizado correctamente'); 
     res.redirect('/books')
 };
 bookCtrl.deleteBook = async (req, res) => {
     await Book.findByIdAndDelete(req.params.id)
+    // Mensajes de Libro
+    //Le decimos que guarde el mensaje 'Libro eliminado correctamente' en 'success_msg'
+    req.flash('success_msg', 'Libro eliminado correctamente'); 
     res.redirect('/books')
 };
 
