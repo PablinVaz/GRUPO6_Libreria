@@ -20,7 +20,6 @@ const passport = require('passport');
 const app = express();
 require('./config/passport');
 
-
 // Setttings
 
     //Configuracion del puerto suministrado por el servidor o el puerto 3000.
@@ -61,8 +60,6 @@ require('./config/passport');
     app.use(passport.session());
     // Usamos flash para poder recibir los mensajes
     app.use(flash());
-
-    
 
 // Variables Globales
     app.use((req,res, next) =>{ // Aqui es donde recogemos los mensages y se envia al archivo MESSAGES.HBS
