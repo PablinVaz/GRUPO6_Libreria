@@ -24,4 +24,4 @@ router.put('/books/edit/:id', isValidate, updateBook);
 router.delete('/books/delete/:id', isValidate, deleteBook)
 
 
-module.exports = router
+module.exports = router;
