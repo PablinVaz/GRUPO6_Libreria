@@ -11,11 +11,14 @@ const morgan = require ('morgan');
 const methodOverride = require ('method-override');
 // Esta libreria se usa para enviar mensajes; se ha creado un disco nuevo o se ha borrado un libro....
 const flash = require('connect-flash');
-// Express-session de usa para guardar los mensajes de connect-flash
+// Express-session se usa para guardar los mensajes de connect-flash
 const session = require('express-session');
+// Con passport vamos a comprobar que el usuario esta registrado y mantener su sesión abierta
+const passport = require('passport');
 
 // Inializaciones
 const app = express();
+require('./config/passport');
 
 
 // Setttings
@@ -52,7 +55,11 @@ const app = express();
         resave: true,
         saveUninitialized: true
     }));
-    // 
+    // Usamos initialize para iniciar el proceso de comprobación
+    app.use(passport.initialize());
+    // Session sirve para dejar la sesion del cliente abierta mientras navega.
+    app.use(passport.session());
+    // Usamos flash para poder recibir los mensajes
     app.use(flash());
 
     
@@ -61,6 +68,8 @@ const app = express();
     app.use((req,res, next) =>{ // Aqui es donde recogemos los mensages y se envia al archivo MESSAGES.HBS
         res.locals.success_msg = req.flash('success_msg'); //Mensajes OK
         res.locals.error_msg = req.flash('error_msg'); // Mensajes de ERROR
+        res.locals.error = req.flash('error');// Error al iniciar sesion
+        res.locals.user = req.user || null;
         next();
     });
 

@@ -33,8 +33,8 @@ const UserSchema =new Schema ({
         return await bcrypt.hash(password, salt);
     };
     //Comparar contraseña
-    UserSchema.methods.matchPassword = async function (password) {
-        return await bcrypt.compare(password, this.password)
+    UserSchema.methods.matchPassword = async function(password) {
+        return await bcrypt.compare(password, this.password);
     }
 
 module.exports = model('User', UserSchema)
