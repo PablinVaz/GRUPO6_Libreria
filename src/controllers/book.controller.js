@@ -18,7 +18,8 @@ bookCtrl.createNewBook = async (req, res) => {
     res.redirect('/books')
 };
 bookCtrl.renderBooks = async (req, res) => {
-    const books = await Book.find().lean();
+    const books = await Book.find().lean();  //.sort({createdAt:'desc'}) Cambiamos la fomra en la que nos muestra los libros.
+    //Le decimos que nos muestre los libros por fecha de creación descendente, los ultimos creamos los primeros en mostrar. 
     res.render('books/all-books',{ books })
 };
 bookCtrl.renderEditBookForm = async (req, res) => {
