@@ -3,7 +3,7 @@ const { Router } = require ('express')
 const router = Router()
 
 //Importamos las funciones creadas en book.controller.js
-const { renderBookForm, createNewBook, renderBooks, renderEditBookForm, updateBook, deleteBook } = require ('../controllers/book.controller');
+const { renderBookForm, createNewBook, renderBooks, renderEditBookForm, updateBook, deleteBook, findByName} = require ('../controllers/book.controller');
 
 const { isValidate } = require('../helpers/validate')
 
@@ -21,7 +21,10 @@ router.get('/books/edit/:id', isValidate, renderEditBookForm);
 router.put('/books/edit/:id', isValidate, updateBook);
 
 //DELETE Book
-router.delete('/books/delete/:id', isValidate, deleteBook)
+router.delete('/books/delete/:id', isValidate, deleteBook);
+
+//Search Book
+router.post('/search', isValidate, findByName)
 
 
 module.exports = router;

@@ -41,6 +41,10 @@ bookCtrl.deleteBook = async (req, res) => {
     req.flash('success_msg', 'Libro eliminado correctamente'); 
     res.redirect('/books')
 };
+bookCtrl.findByName = async (req,res) => {
+    const busqueda = await Book.find({$text: {$search: req.body.search, $caseSensitive: false}}).lean();
+    res.render('books/all-books',{books: busqueda})
+}
 
 //EXPORTAMOS
 module.exports = bookCtrl;

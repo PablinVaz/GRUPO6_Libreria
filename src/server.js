@@ -44,7 +44,7 @@ require('./config/passport');
 
     // Usamos morgan y le decimos que solo funcione en desarrollo 
     app.use(morgan('dev'));
-    //Con '({extended:false})' lo que hacemos es decirle al servidor que todos los datos recividos de formularios los almacene como un objeto JSON
+    //Con '({extended:false})' lo que hacemos es decirle al servidor que todos los datos recibidos de formularios los almacene como un objeto JSON
     app.use(express.urlencoded({extended:false}));
     //Con '_method' le estamos diciendo el metodo que queremos usar. En el archivo all-books.hbs tenemos más detalles.
     app.use(methodOverride('_method'));

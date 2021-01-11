@@ -21,5 +21,7 @@ const BookSchema =new Schema ({
 },{
     timestamps: true
 })
+//MAGIA DE BUSQUEDA!!!
+BookSchema.index({title:"text"});
 
 module.exports = model('Book', BookSchema);
