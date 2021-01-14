@@ -3,7 +3,7 @@ const { Router } = require ('express');
 // Guardamos en una constante los objetos que nos devuelve la funcion Router()
 const router = Router();
 //Importamos las funciones creadas en index.controller.js
-const {renderIndex, renderReg } = require('../controllers/index.controller')
+const { renderIndex } = require('../controllers/index.controller')
 //Cuando se solicite una ruta le decimos que tienes que ir a buscarla a index.controller.js
 router.get('/', renderIndex);
 
